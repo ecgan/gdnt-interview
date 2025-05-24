@@ -9,6 +9,7 @@ test('Example 1: ["apple", "banana", "cabbage"] with valid random words', () => 
     expect(checker.isValid("bage")).toBe(true)
     expect(checker.isValid("a")).toBe(true)
     expect(checker.isValid("abananabbabbabbananabbage")).toBe(true)
+    expect(checker.isValid("apple")).toBe(true)
 })
 
 test('["apple", "banana", "cabbage"] with invalid "e": not a first letter', () => {
