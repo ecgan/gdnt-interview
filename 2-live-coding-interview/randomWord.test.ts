@@ -1,22 +1,14 @@
 import { expect, test } from 'vitest'
+import { RandomWordChecker } from './RandomWordChecker'
 import { randomWord } from  './randomWord'
 
-test('Example 1: ', () => {
-    const result = randomWord(["apple", "banana", "cabbage"])
-    console.log('result:', result)
-})
+test('Example 1: call `randomWord` for 1000 times and check the result with `RandomWordChecker`: all results should be valid', () => {
+    const words = ["apple", "banana", "cabbage"]
+    const checker = new RandomWordChecker(words)
 
-test('Example 1 with cabbzkcd: ', () => {
-    const result = randomWord(["apple", "banana", "cabbzkcd"])
-    console.log('result:', result)
-})
+    for (let i = 0; i < 1000; i++) {
+        const result = randomWord(words)
 
-test('Example 2: ', () => {
-    const result = randomWord(["apple", "cabbage"])
-    console.log('result:', result)
-})
-
-test('Example 2 with zebra: ', () => {
-    const result = randomWord(["apple", "cabbage", "zebra"])
-    console.log('result:', result)
+        expect(checker.isValid(result)).toBe(true)
+    }
 })
