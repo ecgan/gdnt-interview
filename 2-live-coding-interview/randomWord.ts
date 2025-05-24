@@ -25,7 +25,7 @@ const randomWord = (words: string[]) => {
             pairs?.add(nextLetter)
 
             if (j === word.length - 2) {
-                ends.add(letter)
+                ends.add(word[word.length - 1])
             }
 
             if (j === 0){
@@ -41,7 +41,7 @@ const randomWord = (words: string[]) => {
     console.log('result:',result)
     console.log('ends:',ends)
 
-    while(ends.has(result[result.length-1])) {
+    while(!ends.has(result[result.length-1])) {
         const lastLetter = result[result.length-1]
         console.log('lastLetter:',lastLetter)
 

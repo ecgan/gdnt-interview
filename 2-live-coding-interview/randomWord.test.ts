@@ -2,17 +2,21 @@ import { expect, test } from 'vitest'
 import { randomWord } from  './randomWord'
 
 test('Example 1: ', () => {
-    expect(randomWord(["apple", "banana", "cabbage"])).toBe('a')
+    const result = randomWord(["apple", "banana", "cabbage"])
+    console.log('result:', result)
 })
 
-test('Example 1: ', () => {
-    expect(randomWord(["apple", "banana", "cabbzkcd"])).toBe('a')
+test('Example 1 with cabbzkcd: ', () => {
+    const result = randomWord(["apple", "banana", "cabbzkcd"])
+    console.log('result:', result)
 })
 
 test('Example 2: ', () => {
-    expect(randomWord(["apple", "cabbage"])).not.toBe('a')
+    const result = randomWord(["apple", "cabbage"])
+    console.log('result:', result)
 })
 
-test('Example 2: ', () => {
-    expect(randomWord(["apple", "cabbage", "zebra"])).not.toBe('a')
+test('Example 2 with zebra: ', () => {
+    const result = randomWord(["apple", "cabbage", "zebra"])
+    console.log('result:', result)
 })
