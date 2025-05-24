@@ -9,24 +9,19 @@ function getRandomIntInclusive(min, max) {
 const randomWord = (words: string[]) => {
     const lettersMap = convertToLettersMap(words)
 
-    const num = getRandomIntInclusive(0, words.length - 1 )
+    // We initialize result array with an empty string element,
+    // so that the following code will automatically
+    // find the first possible letter from the `lettersMap`.
+    const result: string[] = ['']
 
-    const result: string[] = []
-    result.push(words[num][0])
-
-    while(true) {
-        const lastLetter = result[result.length-1]
-        if (lastLetter === '') {
-            break;
-        }
-
-        const letters = lettersMap.get(lastLetter) || new Set()
-
-        const num = getRandomIntInclusive(0, letters?.size - 1)
-        const nextLetter = Array.from(letters?.values() || [])[num]
+    do {
+        const curLetter = result[result.length-1]
+        const nextLetters = lettersMap.get(curLetter) as Set<string>
+        const num = getRandomIntInclusive(0, nextLetters.size - 1)
+        const nextLetter = Array.from(nextLetters.values())[num]
 
         result.push(nextLetter)
-    }
+    } while (result[result.length-1] !== '')
 
     return result.join('')
 }
