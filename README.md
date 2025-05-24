@@ -2,7 +2,7 @@
 
 My solution for GDNT interview.
 
-\* Note: GDNT is a random string that I used to represent the company.
+Note: GDNT is a random string that I used to represent the company. The interview process happened in May 2025. All the code in this repository are done without any use of AI as requested by the company. This repository is meant for learning and documentation purposes.
 
 ## How to run
 
