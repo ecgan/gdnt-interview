@@ -1,12 +1,13 @@
+/**
+ * Returns a map that stores the mapping of one letter to next possible letters based on the `words` array.
+ * 
+ * Empty string '' is used to denote the start and the end of the word, e.g. with the word `"apple"`:
+ * 
+ * `'' => 'a'` means 'a' is the first letter of a word.
+ * 
+ * `'e' => ''` means 'e' is the last letter of a word.
+ */
 const convertToLettersMap = (words: string[]) => {
-    /**
-     * A map to stores the mapping of one letter to next possible letters.
-     * 
-     * Empty string '' is used to denote the start and the end of the word, i.e.:
-     * 
-     * `'' => 'a'` means 'a' is the first letter of a word.
-     * `'e' => ''` means 'e' is the last letter of a word.
-     */
     const map: Map<string, Set<string>> = new Map()
 
     words.forEach((word) => {
