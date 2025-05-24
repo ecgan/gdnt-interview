@@ -1,3 +1,5 @@
+import { convertToLettersMap } from './convertToLettersMap'
+
 function getRandomIntInclusive(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
@@ -5,24 +7,7 @@ function getRandomIntInclusive(min, max) {
 }
 
 const randomWord = (words: string[]) => {
-    const pairsMap = new Map<string, Set<string>>()
-
-    for (let i = 0; i < words.length; i++) {
-        const word = words[i];
-        
-        for (let j = 0; j < word.length; j++) {
-            // iterate over the letters in the word.
-            const letter = word[j];
-            
-            if (!pairsMap.has(letter)) { 
-                pairsMap.set(letter, new Set())
-            }
-
-            const pairs = pairsMap.get(letter)
-            const nextLetter = word[j+1] || ''
-            pairs?.add(nextLetter)
-        }
-    }
+    const lettersMap = convertToLettersMap(words)
 
     const num = getRandomIntInclusive(0, words.length - 1 )
 
@@ -35,7 +20,7 @@ const randomWord = (words: string[]) => {
             break;
         }
 
-        const letters = pairsMap.get(lastLetter) || new Set()
+        const letters = lettersMap.get(lastLetter) || new Set()
 
         const num = getRandomIntInclusive(0, letters?.size - 1)
         const nextLetter = Array.from(letters?.values() || [])[num]
